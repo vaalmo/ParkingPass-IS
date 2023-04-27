@@ -1,11 +1,11 @@
 import { Pool } from 'postgres-pool';
 
 export const pool = new Pool({
-    host: 'xxxx',
-    database: 'xxxx',
-    user: 'xxxx',
-    password: 'xxxx',
-    port: xxxx,
+    host: 'localhost',
+    database: 'parkingpass',
+    user: 'localhost',
+    password: 'vaalmopostgres',
+    port: 5432,
   });
 
 
