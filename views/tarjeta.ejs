@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <title>Tarjeta</title>
+</head>
+<body>
+    <h1>Agrega tu tarjeta</h1>
+    <form action="/tarjeta" method="POST">
+        <div>
+            <input type="text" id="tipoTarjeta" name="tipoTarjeta" placeholder="tipoTarjeta" required>
+        </div>
+        <div>
+            <input type="text" id="numero" name="numeroTarjeta" placeholder="numeroTarjeta" required>
+        </div>
+        <div>
+            <input type="password" id="ccv" name="ccv" placeholder="ccv" required>
+        </div>
+        <div>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre propetario" required>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

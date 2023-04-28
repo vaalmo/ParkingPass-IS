@@ -11,6 +11,21 @@ CREATE TABLE USUARIO(
     tiempoActivoParqueadero INTEGER
 );
 
+CREATE TABLE TARJETA(
+    idTarjeta SERIAL PRIMARY KEY,
+    tipoTarjeta VARCHAR(30), 
+    numeroTarjeta VARCHAR(20) NOT NULL,
+    ccv VARCHAR(5) NOT NULL UNIQUE,
+    nombrePropietario VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE TARJETAUSUARIO(
+    idUser varchar(10),
+	idTarj varchar(15),
+	CONSTRAINT FK_Usuario FOREIGN KEY(idUser) REFERENCES USUARIO(idUsuario),
+	CONSTRAINT FK_Tarjeta FOREIGN KEY(idTarj) REFERENCES TARJETA(idTarjeta)
+);
+
 
 INSERT INTO USUARIO (idUsuario, tipoUsuario, nombre, apellido, correo, contrasena, saldo, tiempoActivoParqueadero)
 VALUES('1000654928','miembro','Sebastian','Salazar','ssalazar@eafit.edu.co','sebassalazar1','0','0');
