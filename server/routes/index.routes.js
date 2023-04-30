@@ -37,9 +37,17 @@ router.post("/tarjeta", jsonParser , (req, res) => {
         'INSERT INTO tarjeta (tipoTarjeta, numeroTarjeta, ccv, nombrePropietario) VALUES ($1, $2, $3, $4, $5)',
         [tipoTarjeta, numeroTarjeta, ccv, nombre],
     )
-    res.redirect('/')   
-    
-    
+    res.redirect('/')
+
+
+});
+
+router.get("/parqueadero", async (req, res) => {
+    const result = await pool.query('select * from parqueadero');
+    var park = result.rows[0];
+    park['dispcarro'] = park['celdascarro'] - park['celdasocupadascarro']
+    park['dispmoto'] = park['celdasmoto'] - park['celdasocupadasmotos']
+    res.render('parqueadero', {park});
 });
 
 //router.post("/users/register", (req, res) => {
