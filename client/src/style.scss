@@ -1,0 +1,106 @@
+$darkBlue: #183c60;
+
+.app {
+    display: flex;
+    justify-content: center;
+    
+
+    .container{
+        width: 1024px;
+
+        .link{
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+
+
+
+        //Login and register page
+          
+        .auth{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          background-color: $darkBlue;
+
+          h1{
+            font-size: 20px;
+            color: white;
+            margin-bottom: 20px;
+            //margin-inline: -300px;
+          }
+
+
+          form{
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+            background-color: white;
+            width: 200px;
+            gap: 20px;
+
+            input{
+                padding: 10px;
+                border: none;
+                border-bottom: 1px solid gray;
+
+            }
+
+            button{
+                padding: 10px;
+                border: none;
+                background-color: $darkBlue;
+                cursor: pointer;
+                color: white;
+            }
+            
+            p{
+                font-size: 12px;
+                color: red;
+                text-align: center;
+            }
+
+            span{
+                font-size: 12px;
+                text-align: center;
+            }
+          }
+
+        }
+
+        //Navigation bar component :p
+
+        .navbar{
+            .container{
+                padding: 10px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .logo{          
+                    img {
+                    width: 220px;
+                    }}
+                .links{
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+
+                 h5{
+                    font-size: 16px;
+                    font-weight: 300;
+                 } 
+
+                 span{
+                    cursor: pointer;
+                 }
+                }
+            }
+        }
+
+    }
+
+}

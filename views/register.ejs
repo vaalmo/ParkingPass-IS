@@ -10,7 +10,14 @@
 <body>
     <h1>Regístrate</h1>
 
-    <form action="/users/register" method="POST">
+
+    <form action="/register" method="POST">
+        <div>
+            <input type="text" id="idUsuario" name="idUsuario" placeholder="Número de identificación" required>
+        </div>
+        <div>
+            <input type="text" id="tipoUsuario" name="tipoUsuario" placeholder="Tipo de usuario" required>
+        </div>
         <div>
             <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
         </div>
@@ -21,21 +28,12 @@
             <input type="email" id="correo" name="correo" placeholder="Correo" required>
         </div>
         <div>
-            <input type="text" id="idUsuario" name="idUsuario" placeholder="Número de identificación" required>
-        </div>
-        <div>
-            <input type="text" id="tipoUsuario" name="tipoUsuario" placeholder="Tipo de usuario" required>
-        </div>
-        <div>
             <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
         </div>
         <div>
-            <input type="password" id="contrasena2" name="contrasena2" placeholder="Confirme su contraseña" required>
+            <input type="submit" value="Registrarse">
         </div>
-        <div>
-            <input type="submit" value="Regístrate">
-        </div>
-        <a href="/users/login">Ya estás registrado? Inicia sesión aquí</a>
+        <a href="/login">Ya estás registrado? Inicia sesión aquí</a>
     </form>
 </body>
 </html>
