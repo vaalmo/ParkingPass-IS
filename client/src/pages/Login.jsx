@@ -7,7 +7,7 @@ const Login = () => {
       <h1>Iniciar Sesión</h1>
       <form>
         <input required type="idUsuario" placeholder='Número de identificación' />
-        <input required type="text" placeholder='Contraseña' />
+        <input required type="password" placeholder='Contraseña' />
         <button>Login</button>
         <p>Error!</p>
         <span>No tienes una cuenta? <Link to="/register">Regístrate</Link></span>
