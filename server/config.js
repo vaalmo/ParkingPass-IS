@@ -1,13 +1,13 @@
 // configuration file
 
-export const PORT = 5000;
+export const PORT = 4000;
 
 //database info
 import { Pool } from 'postgres-pool';
 
 export const pool = new Pool({
     host: 'localhost',
-    database: 'parkingpass',
+    database: 'parkingp',
     user: 'postgres',
     password: 'vaalmopostgres',
     port: 5432,

@@ -1,12 +1,13 @@
 CREATE DATABASE parkingpass;
 
 CREATE TABLE USUARIO(
-    idUsuario VARCHAR(15) PRIMARY KEY NOT NULL,
+    id SERIAL PRIMARY KEY NOT NULL, 
+    idUsuario VARCHAR(15) NOT NULL UNIQUE,
     tipoUsuario VARCHAR(15), 
     nombre VARCHAR(200) NOT NULL,
     apellido VARCHAR(200) NOT NULL,
-    correo VARCHAR(200) NOT NULL UNIQUE,
-    contrasena VARCHAR(30) NOT NULL,
+    correo VARCHAR(200) NOT NULL,
+    contrasena VARCHAR(200) NOT NULL,
     saldo INTEGER,
     tiempoActivoParqueadero INTEGER
 );

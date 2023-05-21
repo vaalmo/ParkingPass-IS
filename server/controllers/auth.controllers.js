@@ -1,54 +1,80 @@
 import bodyParser from 'body-parser';
 import { pool } from '../config.js';
 import bcrypt from 'bcrypt';
-//import flash  from 'connect-flash';
+import Yup from 'yup';
+
 
 let jsonParser = bodyParser.json();
 
-//registro
-export const register = (req, res) => {
-        const idUsuario = req.body.idUsuario;
-        const tipoUsuario = req.body.tipoUsuario;
-        const nombre = req.body.nombre;
-        const apellido = req.body.apellido;
-        const correo = req.body.correo;
-        const contrasena = req.body.contrasena;
-      
-        const query = 'INSERT INTO public.usuario (idUsuario, tipoUsuario, nombre, apellido, correo, contrasena) VALUES ($1, $2, $3, $4, $5, $6)'
-        pool.query(query, [idUsuario, tipoUsuario, nombre, apellido, correo, contrasena],
-            (error, results) => {
-             if (error) {
-                 console.log(error);
-                 res.status(500).send('Error registering user');
-                } else {
-                  res.status(200).send('User registered successfully');
-                }
-              });
-      
-          console.log('Usuario registrado')
-          res.render('login')
-            };
+
+const RegisterFormSchema = Yup.object({
+  username: Yup.string()
+    .required("Username required")
+    .min(6, "Username too short")
+    .max(28, "Username too long!"),
+  usertype: Yup.string()
+    .required("Username required")
+    .min(6, "Username too short")
+    .max(28, "Username too long!"),
+  name: Yup.string()
+    .required("Password required")
+    .min(6, "Password too short")
+    .max(28, "Password too long!"),
+  surname: Yup.string()
+    .required("Username required")
+    .min(6, "Username too short")
+    .max(28, "Username too long!"),
+  email: Yup.string()
+    .required("Password required")
+    .min(6, "Password too short")
+    .max(28, "Password too long!"),
+  password: Yup.string()
+    .required("Password required")
+    .min(6, "Password too short")
+    .max(28, "Password too long!"),
+});
+
+export const validateRegisterForm = (req, res) => {
+  const formData = req.body;
+  RegisterFormSchema
+    .validate(formData)
+    .catch(err => {
+      //res.status(422).send();
+      console.log(err.errors);
+    })
+    .then(valid => {
+      if (valid) {
+        console.log("form is good");
+      }
+    });
+};
 
 
+const LoginFormSchema = Yup.object({
+  username: Yup.string()
+    .required("Username required")
+    .min(6, "Username too short")
+    .max(28, "Username too long!"),
+  password: Yup.string()
+    .required("Password required")
+    .min(6, "Password too short")
+    .max(28, "Password too long!"),
+});
+
+export const validateLoginForm = (req, res) => {
+  const formData = req.body;
+  LoginFormSchema
+    .validate(formData)
+    .catch(err => {
+      //res.status(422).send();
+      console.log(err.errors);
+    })
+    .then(valid => {
+      if (valid) {
+        console.log("form is good");
+      }
+    });
+};
 
 
-
-//inicio de sesion
-
-export const login = (req, res) => {
-    const idUsuario = req.body.idUsuario;
-    const contrasena = req.body.contrasena;
-
-    const query = 'SELECT idUsuario, contrasena FROM public.usuario WHERE idUsuario = $1'
-    
-}
-
-
-//dashboard de usuario (miembro, visitante)
-//router.get("/dashboard", (req, res) => {
-//    res.render('dashboard', { user: "Onofre" });
-//});
-
-
-//export default router;
 
