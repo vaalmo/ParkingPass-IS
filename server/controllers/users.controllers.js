@@ -1,7 +1,7 @@
 import { pool } from "../config.js"
 
+//dashboard de usuario (miembro, visitante)
 export const dashboard = (req, res) => {
-    res.render('dashboard')
-}
-
-//res.render('dashboard', { user: req.user.nombre })
+    res.render('dashboard', { user: "Usuario" });
+ };
+ 
