@@ -15,12 +15,12 @@ const Views = () => {
     <Text>Loading...</Text>
   ) : (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<SignUp />} />
       <Route element={<PrivateRoutes />}>
-       <Route path="/dashboard" element={<Dashboard />} />
-       <Route path="/logout" element={<Logout />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Route>
+      <Route path="/logout" element={<Logout />} />
       <Route path="*" element={<Login />} />
     </Routes>
   );
