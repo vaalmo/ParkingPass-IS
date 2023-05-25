@@ -1,7 +1,7 @@
 CREATE DATABASE parkingpass;
 
 CREATE TABLE USUARIO(
-    id SERIAL PRIMARY KEY NOT NULL, 
+    id SERIAL PRIMARY KEY NOT NULL,
     idUsuario VARCHAR(15) NOT NULL UNIQUE,
     tipoUsuario VARCHAR(15),
     nombre VARCHAR(200) NOT NULL,
@@ -25,6 +25,16 @@ CREATE TABLE TARJETAUSUARIO(
 	idTarj varchar(15),
 	CONSTRAINT FK_Usuario FOREIGN KEY(idUser) REFERENCES USUARIO(id),
 	CONSTRAINT FK_Tarjeta FOREIGN KEY(idTarj) REFERENCES TARJETA(id)
+);
+
+CREATE TABLE PARQUEADERO(
+    idPark VARCHAR(15) PRIMARY KEY NOT NULL,
+    celdasCarro INTEGER,
+    celdasMoto INTEGER,
+    celdasOcupadasCarro INTEGER,
+    celdasOcupadasMotos INTEGER,
+    tarifaMotos INTEGER,
+    tarifaCarro INTEGER
 );
 
 CREATE TABLE PARQUEADERO(
