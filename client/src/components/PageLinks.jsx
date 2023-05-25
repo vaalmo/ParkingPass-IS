@@ -1,4 +1,4 @@
-import { HStack, Link as ChakraLink } from "@chakra-ui/layout";
+import { Link as ChakraLink, HStack } from "@chakra-ui/layout";
 import { Link } from "react-router-dom";
 
 const PageLinks = () => {
@@ -12,6 +12,9 @@ const PageLinks = () => {
       </ChakraLink>
       <ChakraLink as={Link} to="/logout" fontSize="xl">
         Cerrar Sesión
+      </ChakraLink>
+      <ChakraLink as={Link} to="/tarjeta" fontSize="xl">
+        Agregar tarjeta
       </ChakraLink>
     </HStack>
   );

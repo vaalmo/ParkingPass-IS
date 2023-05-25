@@ -1,20 +1,20 @@
 //main file
 
 import bodyParser from 'body-parser';
+import cors from 'cors';
+import dotenv from "dotenv";
 import express from 'express';
+import session from 'express-session';
+import helmet from 'helmet';
 import { createServer } from "http";
 import { Server } from "socket.io";
-import {PORT} from './config.js'
-import helmet from 'helmet'
-import cors from 'cors'
-import session from 'express-session'
-import dotenv  from "dotenv"
+import { PORT } from './config.js';
 
 dotenv.config()
 
-import authRoutes from './routes/auth.routes.js'
+import authRoutes from './routes/auth.routes.js';
 //import usersRoutes from './routes/users.routes.js'
-//import paymethodsRoutes from './routes/paymethods.routes.js'
+import paymethodsRoutes from './routes/paymethods.routes.js';
 
 
 const app = express();
@@ -54,7 +54,7 @@ app.use(bodyParser.json())
 
 app.use("/auth", authRoutes)
 //app.use(usersRoutes)
-//app.use(paymethodsRoutes)
+app.use("/paymethods", paymethodsRoutes)
 
 io.on("connect", socket => {})
 
