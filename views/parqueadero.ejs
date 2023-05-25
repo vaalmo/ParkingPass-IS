@@ -6,14 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
     <title>Parqueaderos</title>
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <h1>Parqueadero</h1>
-    <ul>Parqueadero: <%= park['idpark'] %></ul>
-    <ul>Celdas disponibles Carro: <%= park['dispcarro'] %></ul>
-    <ul>Celdas disponibles Moto: <%= park['dispmoto'] %></ul>
-    <ul>Tarifa Moto: <%= park['tarifamotos'] %></ul>
-    <ul>Tarifa Carro: <%= park['tarifacarro'] %></ul>
+    <% for(var i=0; i<rows.length; i++) { %>
+        <ul>
+            <li><strong>Parqueadero:</strong> <%= rows[i].idpark %></li>
+            <li><strong>Celdas Disponibles Carro:</strong> <%= rows[i].celdascarro - rows[i].celdasocupadascarro %></li>
+            <li><strong>Celdas Disponibles Moto:</strong> <%= rows[i].celdasmoto - rows[i].celdasocupadasmotos %></li>
+            <li><strong>Tarifa Moto:</strong> <%= rows[i].tarifamotos %></li>
+            <li><strong>Tarifa Carro:</strong> <%= rows[i].tarifacarro %></li>
+        </ul>
+    <% } %>
 </body>
 </html>
-

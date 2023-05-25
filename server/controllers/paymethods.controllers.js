@@ -8,14 +8,12 @@ export const addCard = (req, res) => {
         [tipoTarjeta, numeroTarjeta, ccv, nombre],
     )
     res.render('/')
-    }
+}
 
 
 //consultar tarifa calculada
 export const parqueadero = async (req, res) => {
     const result = await pool.query('select * from parqueadero');
-    var park = result.rows[0];
-    park['dispcarro'] = park['celdascarro'] - park['celdasocupadascarro']
-    park['dispmoto'] = park['celdasmoto'] - park['celdasocupadasmotos']
-    res.render('parqueadero', {park});
+    const rows = result.rows
+    res.render('parqueadero', {rows});
 };
