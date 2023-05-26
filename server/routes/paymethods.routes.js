@@ -18,10 +18,10 @@ router.post("/agregarTarjeta", jsonParser, (req, res) => {
             message: 'Tarjeta agregada'
         })
      })
-    
+
 });
 
-
+router.get("/parqueadero", parqueadero);
 
 export default router;
 

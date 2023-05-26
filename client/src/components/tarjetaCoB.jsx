@@ -21,7 +21,7 @@ const Tarjeta = () => {
           })
             .then(res => res.json())
             .then(json => setData(json.data))
-        
+
     }
 
     return (

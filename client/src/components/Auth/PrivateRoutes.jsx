@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { AccountContext } from "../AccountContext";
+import { AccountContext } from "../AccountContext";//
 import { useLocation } from "react-router-dom";
 
 const { Outlet, Navigate } = require("react-router");
 
-const useAuth = () => {
+const useAuth = () => {//
   const { user } = useContext(AccountContext);
   return user && user.loggedIn;
 };

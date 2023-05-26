@@ -21,20 +21,10 @@ CREATE TABLE TARJETA(
 );
 
 CREATE TABLE TARJETAUSUARIO(
-    idUser varchar(10),
-	idTarj varchar(15),
-	CONSTRAINT FK_Usuario FOREIGN KEY(idUser) REFERENCES USUARIO(id),
-	CONSTRAINT FK_Tarjeta FOREIGN KEY(idTarj) REFERENCES TARJETA(id)
-);
-
-CREATE TABLE PARQUEADERO(
-    idPark VARCHAR(15) PRIMARY KEY NOT NULL,
-    celdasCarro INTEGER,
-    celdasMoto INTEGER,
-    celdasOcupadasCarro INTEGER,
-    celdasOcupadasMotos INTEGER,
-    tarifaMotos INTEGER,
-    tarifaCarro INTEGER
+    idUser INTEGER,
+    idTarj INTEGER,
+    CONSTRAINT FK_Usuario FOREIGN KEY(idUser) REFERENCES USUARIO(id),
+    CONSTRAINT FK_Tarjeta FOREIGN KEY(idTarj) REFERENCES TARJETA(idTarjeta)
 );
 
 CREATE TABLE PARQUEADERO(

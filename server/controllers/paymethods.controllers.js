@@ -15,5 +15,5 @@ export const addCard = (req, res) => {
 export const parqueadero = async (req, res) => {
     const result = await pool.query('select * from parqueadero');
     const rows = result.rows
-    res.render('parqueadero', {rows});
+    res.json(rows);
 };

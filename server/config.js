@@ -7,7 +7,7 @@ import { Pool } from 'postgres-pool';
 
 export const pool = new Pool({
     host: 'localhost',
-    database: 'parkingp',
+    database: 'parkingpass',
     user: 'postgres',
     password: '1174',
     port: 5432,
