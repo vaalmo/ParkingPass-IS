@@ -3,7 +3,7 @@ import { Router } from 'express';
 import { pool } from "../config.js";
 
 
-import { addCard, parqueadero } from '../controllers/paymethods.controllers.js';
+import { addCard, parqueadero, saldo } from '../controllers/paymethods.controllers.js';
 
 let jsonParser = bodyParser.json();
 const router = Router();
@@ -21,7 +21,7 @@ router.post("/agregarTarjeta", jsonParser, async (req, res) => {
         'INSERT INTO TARJETA (tipoTarjeta, numeroTarjeta, ccv, nombrePropietario) VALUES ($1, $2, $3, $4)',
          [tipo, numero, ccv, nombre],
      );
-    
+
      const tarjetaUsuario = await pool.query(
         'SELECT idTarjeta FROM TARJETA WHERE numeroTarjeta = $1', [numero]
      );
@@ -31,10 +31,11 @@ router.post("/agregarTarjeta", jsonParser, async (req, res) => {
         'INSERT INTO TARJETAUSUARIO (idUser, idTarj) VALUES ($1, $2)', [idUsuario, idTarjeta]
     )
 
-    
+
 });
 
 router.get("/parqueadero", parqueadero);
+router.get("/saldo/:idusuario", saldo);
 
 export default router;
 
