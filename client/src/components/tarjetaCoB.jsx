@@ -1,6 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react';
+import { AccountContext } from "./AccountContext";
+import "./css/tarjeta.css";
 
 const Tarjeta = () => {
+
+    const useAuth = () => {
+      const { user } = useContext(AccountContext);
+      return user ;
+    };
+    const isAuth = useAuth();
 
     const [data, setData] = useState({})
 
@@ -16,7 +24,7 @@ const Tarjeta = () => {
         console.log(data)
         fetch('http://localhost:4000/paymethods/agregarTarjeta', {
             method: 'POST',
-            body: JSON.stringify({ data }),
+            body: JSON.stringify({ data, isAuth }),
             headers: { 'Content-Type': 'application/json' },
           })
             .then(res => res.json())
@@ -25,14 +33,16 @@ const Tarjeta = () => {
     }
 
     return (
-      <div>
-          <form  onSubmit={submit}>
-            <input name='tipo' type="text" placeholder='Tipo de tarjeta' onChange={updateData} />
-            <input name='numero' type="text" placeholder='Numero tarjeta' onChange={updateData} />
-            <input name='ccv' type="password" placeholder='ccv'  onChange={updateData} />
+      <div className='form-box'>
+        <form  onSubmit={submit}>
+          <div className="field1">
+            <input name='tipo' type="text" placeholder='Tipo de tarjeta' onChange={updateData} /><br />
+            <input name='numero' type="text" placeholder='Numero tarjeta' onChange={updateData} /><br />
+            <input name='ccv' type="password" placeholder='ccv'  onChange={updateData} /><br />
             <input name='nombre' type="text" placeholder='Nombre del propetario' onChange={updateData} />
-            <button>Agregar</button>
-          </form>
+          </div>
+          <button className='submitBtn'>Agregar</button>
+        </form>
 
       </div>
 

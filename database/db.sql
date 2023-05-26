@@ -37,6 +37,16 @@ CREATE TABLE PARQUEADERO(
     tarifaCarro INTEGER
 );
 
+CREATE TABLE PARQUEADERO(
+    idPark VARCHAR(15) PRIMARY KEY NOT NULL,
+    celdasCarro INTEGER,
+    celdasMoto INTEGER,
+    celdasOcupadasCarro INTEGER,
+    celdasOcupadasMotos INTEGER,
+    tarifaMotos INTEGER,
+    tarifaCarro INTEGER
+);
+
 
 INSERT INTO USUARIO (idUsuario, tipoUsuario, nombre, apellido, correo, contrasena, saldo, tiempoActivoParqueadero)
 VALUES('1000654928','miembro','Sebastian','Salazar','ssalazar@eafit.edu.co','sebassalazar1','0','0');
