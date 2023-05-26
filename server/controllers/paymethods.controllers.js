@@ -17,3 +17,10 @@ export const parqueadero = async (req, res) => {
     const rows = result.rows
     res.json(rows);
 };
+
+export const saldo = async (req, res) => {
+    const idusuario = req.params.idusuario;
+    const result = await pool.query('SELECT saldo FROM usuario WHERE idusuario = $1', [idusuario]);
+    const row = result.rows;
+    res.json(row[0]);
+  };
