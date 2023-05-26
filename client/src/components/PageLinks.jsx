@@ -19,6 +19,9 @@ const PageLinks = () => {
       <ChakraLink as={Link} to="/parqueadero" fontSize="xl">
         Parqueadero
       </ChakraLink>
+      <ChakraLink as={Link} to="/qrcode" fontSize="xl">
+        Codigo QR
+      </ChakraLink>
     </HStack>
   );
 };

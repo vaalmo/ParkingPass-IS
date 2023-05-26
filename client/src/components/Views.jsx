@@ -9,6 +9,7 @@ import Dashboard from "./Dashboard";
 import Logout from "./Logout";
 import Tarjeta from "./tarjetaCoB";
 import Parqueadero from "./parqueadero";
+import QRCode from "./qrcode";
 
 
 const Views = () => {
@@ -23,8 +24,9 @@ const Views = () => {
         <Route path="/dashboard" element={<Dashboard />} />
       </Route>
       <Route path="/tarjeta" element={<Tarjeta />} />
-      <Route path="/parqueadero/" element={<Parqueadero/>}/>
+      <Route path="/parqueadero" element={<Parqueadero/>}/>
       <Route path="/logout" element={<Logout />} />
+      <Route path="/qrcode" element={<QRCode />} />
       <Route path="*" element={<Login />} />
     </Routes>
   );
