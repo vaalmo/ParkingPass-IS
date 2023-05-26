@@ -6,10 +6,9 @@ export const PORT = 4000;
 import { Pool } from 'postgres-pool';
 
 export const pool = new Pool({
-  host: 'localhost',
-  database: 'postgres',
-  user: 'spalacioj',
-  password: '1q2w3e4r5t',
-  port: 5432,
+    host: 'localhost',
+    database: 'parkingpass',
+    user: 'postgres',
+    password: '1174',
+    port: 5432,
 });
-

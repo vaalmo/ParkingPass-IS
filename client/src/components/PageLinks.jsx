@@ -16,6 +16,9 @@ const PageLinks = () => {
       <ChakraLink as={Link} to="/tarjeta" fontSize="xl">
         Agregar tarjeta
       </ChakraLink>
+      <ChakraLink as={Link} to="/parqueadero" fontSize="xl">
+        Parqueadero
+      </ChakraLink>
     </HStack>
   );
 };

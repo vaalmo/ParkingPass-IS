@@ -34,7 +34,7 @@ router.post("/agregarTarjeta", jsonParser, async (req, res) => {
     
 });
 
-
+router.get("/parqueadero", parqueadero);
 
 export default router;
 
